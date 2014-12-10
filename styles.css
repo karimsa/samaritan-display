@@ -1,0 +1,48 @@
+* {
+    -webkit-transition: .4s all linear;
+    transition: .4s all linear;
+}
+
+html,
+body,
+.message-container {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+body {
+    background: -webkit-radial-gradient(center, ellipse cover,  #ffffff 0%,#e5e5e5 100%);
+}
+
+.message-container {
+    display: table;
+    position: absolute;
+    
+    top: 0;
+    left: 0;
+    
+    text-align: center;
+}
+
+.message {
+    display: table-cell;
+    vertical-align: middle;
+    
+    font-family: 'Inconsolata';
+    text-transform: uppercase;
+    font-size: 2em;
+    font-weight: 500;
+}
+
+.underline {
+    margin-bottom: auto;
+    margin-top: -10px;
+    margin-left: 30%;
+
+    /*min-width: 20px;*/
+    width: 40%;
+    height: 2px;
+    
+    background-color: #000;
+}
