@@ -11,7 +11,15 @@
             cont: window.cont || document.getElementById('cont'),
 
             stat: function (text, callback) {
-                callback = callback || noop;
+                var keep = true;
+
+                if (callback === false) {
+                    keep = false;
+                    callback = noop;
+                } else {
+                    callback = callback || noop;
+                }
+
                 text = String(text);
 
                 msg.style.opacity = 0;
@@ -19,7 +27,10 @@
                     msg.innerHTML = text;
                     setTimeout(function () {
                         msg.style.opacity = 1;
-                        setTimeout(callback, 401);
+                        setTimeout(keep === false ? function () {
+                            msg.style.opacity = 0;
+                            msg.innerHTML = '&nbsp;&nbsp;&nbsp;&nbsp;';
+                        } : callback, 401);
                     }, 200);
                 }, 401);
             },
